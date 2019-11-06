@@ -1,0 +1,34 @@
+.pin {
+    position: absolute;
+    top: 185px;
+    left: 0;
+    right: 0;
+    color: white;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+    > * {
+        width: 100%;
+    }
+
+    .buttons {
+        margin: 20px 0;
+        button + button {
+            margin-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 370px){
+    .buttons button{
+        display: block;
+        margin: 20px auto;
+    }
+    form .buttons button + button{
+        display: block;
+        margin: 20px auto;
+        margin-left: auto;
+    }
+}

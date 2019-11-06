@@ -1,0 +1,25 @@
+.congrats-content-container {
+  .pinBox {
+    position: relative;
+    display: inline-block;
+  }
+  .pin {
+    position: absolute;
+    left: 54%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #fff;
+  }
+}
+
+.step{
+	display: block;
+	margin-bottom: 8px;
+}
+
+@media screen and (max-width: 580px){
+	.steps{
+		text-align: left;
+	}
+}

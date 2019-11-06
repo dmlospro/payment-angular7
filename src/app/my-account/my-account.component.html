@@ -1,0 +1,40 @@
+<loading-spinner *ngIf="!isLoaded"> </loading-spinner>
+<section *ngIf="isLoaded">
+    <h2>My Account</h2>
+    <div class="pinBox">
+        <img class="page-icon" src="../../assets/images/beer_icon-200w-min.jpg" alt="Beer icon" />
+        <strong class="pin">{{ pin }}</strong>
+    </div>
+
+    <h3>Account Info</h3>
+    <form>
+        <mat-form-field hideRequiredMarker>
+            <input matInput placeholder="First Name" [formControl]="firstName" />
+            <mat-error *ngIf="firstName.errors && firstName.errors.required">You must enter a first name.</mat-error>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker>
+            <input matInput placeholder="Last Name" [formControl]="lastName" />
+            <mat-error *ngIf="lastName.errors && lastName.errors.required">You must enter a last name.</mat-error>
+        </mat-form-field>
+        <mat-form-field hideRequiredMarker>
+            <input matInput type="email" placeholder="Email Address" [formControl]="email" />
+            <mat-error *ngIf="email.errors && email.errors.required">You must enter a email.</mat-error>
+            <mat-error *ngIf="email.errors && email.errors.email">Not a valid email.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Phone/SMS" [value]="phoneNumber" disabled />
+        </mat-form-field>
+
+        <div class="buttons">
+            <button
+                mat-raised-button
+                color="primary"
+                [disabled]="firstName.invalid || lastName.invalid || email.invalid || phoneNumber.invalid || loading"
+                (click)="onSave()"
+            >
+                Save Changes
+            </button>
+            <button mat-raised-button color="warn" [disabled]="loading" (click)="onRemove()">Delete Account</button>
+        </div>
+    </form>
+</section>

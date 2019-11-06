@@ -1,0 +1,21 @@
+<section>
+    <h2>Add Phone</h2>
+    <p>Enter your mobile phone number:</p>
+    <mat-form-field>
+        <span matPrefix>+1 &nbsp;</span>
+        <input
+            type="tel"
+            maxlength="10"
+            cdkFocusInitial
+            matInput
+            [formControl]="phoneNumberInput"
+            (keydown)="submitForm($event)"
+            placeholder="Phone number"
+        />
+        <mat-error *ngIf="phoneNumberInput.invalid">{{ getErrorMessage() }}</mat-error>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+    <p>Click next to get an SMS confirmation code.</p>
+    <mat-error class="error" *ngIf="error !== ''">{{error}}</mat-error>
+    <button mat-raised-button color="primary" (click)="nextClick()">Next ></button>
+</section>

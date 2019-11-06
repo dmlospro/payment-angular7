@@ -1,0 +1,38 @@
+<section>
+    <h2>Confirm Account Details</h2>
+    <p>Enter your name:</p>
+    <mat-form-field>
+        <input
+            type="text"
+            matInput
+            [formControl]="firstName"
+            placeholder="First Name"
+            [errorStateMatcher]="firstNameMatcher"
+            (input)="onFirstNameChange($event.target.value)"
+        />
+        <mat-error *ngIf="firstNameMatcher.isError"> First name is required </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input
+            type="text"
+            matInput
+            [formControl]="lastName"
+            placeholder="Last Name"
+            [errorStateMatcher]="lastNameMatcher"
+            (input)="onLastNameChange($event.target.value)"
+        />
+        <mat-error *ngIf="lastNameMatcher.isError"> Last name is required </mat-error>
+    </mat-form-field>
+    <br>
+    <p class="email-consent">
+        By checking the "I Agree" box you expressly consent to receive marketing information and contact from Tbbbout
+        and its partners. We may contact you about our products and services. You may unsubscribe from these
+        communications at anytime. For information on how to unsubscribe, as well as our privacy practices and
+        commitment to protecting your privacy, check out our Privacy Policy.
+    </p>
+    <mat-error *ngIf="displayConsentError === true">You must consent to receive email.</mat-error>
+    <mat-checkbox [checked]="isCheckPolicy" (change)="checkPolicy()">I Agree</mat-checkbox>
+    <br><br>
+    <button mat-raised-button color="primary" (click)="confirmClick()">Confirm</button>
+</section>

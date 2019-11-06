@@ -1,0 +1,11 @@
+<div class="loading" *ngIf="loading">
+    <loading-spinner></loading-spinner>
+</div>
+<section class="stripe" *ngIf="!loading">
+    <h2>Our Convenience Fee</h2>
+    <p class="sub-title">Use our app all you want, wherever Tbbbout is accepted for $1 per month! That’s it.</p>
+
+    <mat-card>
+        <payment-checkout [amount]="11.88" description="Convenience Fee" (onAfterPayment)="onResult($event)"></payment-checkout>
+    </mat-card>
+</section>

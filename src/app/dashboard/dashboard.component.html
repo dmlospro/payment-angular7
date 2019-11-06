@@ -1,0 +1,60 @@
+<loading-spinner *ngIf="!isLoaded"> </loading-spinner>
+<section *ngIf="isLoaded">
+    <h2>My Tabs</h2>
+    <div *ngIf="tabs && tabs.length === 0">
+        <p>No tabs here. Feeling thirsty?</p>
+    </div>
+    <table
+        mat-table
+        [dataSource]="tabs"
+        *ngIf="tabs && tabs.length !== 0"
+        matSort
+        class="mat-elevation-z8 results-table"
+    >
+        <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Date/Time</th>
+            <td mat-cell *matCellDef="let element">
+                {{ humanizeDate(element.createdAt) }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="barName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Bar/Restaurant</th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.barName }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="bartender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Bartender</th>
+            <td mat-cell *matCellDef="let element">
+                {{ element.bartender }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="status" [ngClass]="element.status">
+                    {{ element.status }}
+                </div>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+            <td mat-cell *matCellDef="let element">
+                {{ getTotalText(element) }}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="closeOut">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Close Out</th>
+            <td mat-cell *matCellDef="let element">
+                <button *ngIf="element.status === 'Open'" mat-button (click)="onCloseOut(element)">
+                    Close Out
+                </button>
+                <button *ngIf="element.status === 'Closed'" mat-button (click)="onTBBBOUT(element)" [disabled]="!element.total">
+                    TBBBOUT
+                </button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="myTabsColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: myTabsColumns"></tr>
+    </table>
+</section>

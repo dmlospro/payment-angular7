@@ -1,0 +1,32 @@
+p {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+ol {
+    counter-reset: item;
+    padding-left: 10px;
+}
+
+li {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+ol li {
+    display: block;
+}
+
+ol li:before {
+    content: counters(item, ".") " ";
+    counter-increment: item;
+}
+
+.terms-bold {
+    font-weight: bold;
+}
+
+mat-card {
+    height: calc(100vh - 500px);
+    overflow-y: auto;
+}

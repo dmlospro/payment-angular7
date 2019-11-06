@@ -1,0 +1,75 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="row">
+        <div class="field half-width">
+            <mat-form-field hideRequiredMarker>
+                <mat-label>City</mat-label>
+                <input
+                    matInput
+                    placeholder="San Francisco"
+                    id="city"
+                    name="city"
+                    [(ngModel)]="form.city"
+                    #city="ngModel"
+                    required
+                />
+            </mat-form-field>
+        </div>
+        <div class="field quarter-width">
+            <mat-form-field hideRequiredMarker>
+                <mat-label>State</mat-label>
+                <input
+                    matInput
+                    placeholder="CA"
+                    id="state"
+                    name="state"
+                    [(ngModel)]="form.state"
+                    #state="ngModel"
+                    required
+                />
+            </mat-form-field>
+        </div>
+        <div class="field quarter-width">
+            <mat-form-field hideRequiredMarker>
+                <mat-label>ZIP</mat-label>
+                <input
+                    matInput
+                    placeholder="94104"
+                    id="zip"
+                    name="zip"
+                    [(ngModel)]="form.zip"
+                    #zip="ngModel"
+                    required
+                />
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="field">
+            <div id="card-number" class="input empty"></div>
+            <label for="card-number">Card number</label>
+            <div class="baseline"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="field half-width">
+            <div id="card-expiry" class="input"></div>
+            <label for="card-expiry">Expiration</label>
+            <div class="baseline"></div>
+        </div>
+        <div class="field half-width">
+            <div id="card-cvc" class="input empty"></div>
+            <label for="card-cvc">CVC</label>
+            <div class="baseline"></div>
+        </div>
+    </div>
+
+    <div class="row submit">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!form.valid">PAY ${{ amount }}</button>
+    </div>
+
+    <div class="card-errors">{{ errors }}</div>
+
+    <loading-spinner class="loading" *ngIf="submitting"></loading-spinner>
+</form>

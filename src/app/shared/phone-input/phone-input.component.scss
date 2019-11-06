@@ -1,0 +1,21 @@
+.number-input-container {
+  display: flex;
+}
+
+.number-input-element {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  font: inherit;
+  text-align: center;
+}
+
+.number-input-spacer {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+:host.label-floating .number-input-spacer {
+  opacity: 1;
+}

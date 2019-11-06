@@ -1,0 +1,21 @@
+<h1 mat-dialog-title *ngIf="total == 0">Please add a tip</h1>
+<div mat-dialog-content *ngIf="total == 0">
+    <mat-radio-group [(ngModel)]="tip">
+        <mat-radio-button value="0">0%</mat-radio-button>
+        <mat-radio-button value="10">10%</mat-radio-button>
+        <mat-radio-button value="15">15%</mat-radio-button>
+        <mat-radio-button value="20">20%</mat-radio-button>
+    </mat-radio-group>
+</div>
+<div mat-dialog-actions *ngIf="total == 0">
+    <button mat-raised-button color="primary" (click)="selectTip()">
+        OK
+    </button>
+</div>
+<payment-checkout
+    [amount]="total"
+    description=""
+    (onBeforePayment)="onBeforePayment()"
+    (onAfterPayment)="onResult($event)"
+    *ngIf="total != 0"
+></payment-checkout>

@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<div mat-dialog-content>
+    <p *ngIf="data.description">{{ data.description }}</p>
+    <img *ngIf="data.imageUrl" [src]="data.imageUrl" alt="" />
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button *ngIf="data.cancelButtonText" [mat-dialog-close]="false">
+        {{ data.cancelButtonText }}
+    </button>
+    <button
+        mat-raised-button
+        [color]="data.okButtonColor || 'primary'"
+        [mat-dialog-close]="true"
+        *ngIf="data.okButtonText"
+    >
+        {{ data.okButtonText }}
+    </button>
+</div>

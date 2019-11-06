@@ -1,0 +1,56 @@
+<div class="loading" *ngIf="loading">
+    <loading-spinner></loading-spinner>
+</div>
+<main *ngIf="!loading">
+    <mat-toolbar class="header">
+        <mat-toolbar-row>
+            <button mat-icon-button (click)="drawer.toggle()" class="mobile-nav" *ngIf="isLogged">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span class="logo">
+                <a [routerLink]="['']">
+                    <img class="desktop" src="assets/images/tbbbout_logo-300w.jpg" />
+                    <img class="mobile" src="assets/images/tbbbout_logo-200w.jpg" />
+                </a>
+            </span>
+            <span class="title">
+                Pay your tab from your phone.
+            </span>
+            <span class="button-spacer"></span>
+            <button mat-icon-button (click)="logout()" *ngIf="isLogged">
+                <mat-icon aria-label="logout exit_to_app icon">logout</mat-icon>
+            </button>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="desktop-nav" *ngIf="isLogged">
+            <div>
+                <span class="nav-item">
+                    <a [routerLink]="['/my-tabs/']">My Tabs</a>
+                </span>
+                <span class="nav-item">
+                    <a [routerLink]="['/my-account/']">My Account</a>
+                </span>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container class="content-container">
+        <mat-sidenav #drawer mode="side" closed (click)="drawer.toggle()" role="navigation">
+            <mat-nav-list *ngIf="isLogged">
+                <a mat-list-item [routerLink]="['/my-tabs/']">My Tabs</a>
+                <a mat-list-item [routerLink]="['/my-account/']">My Account</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+            <footer>
+                <div class="content-container">
+                    <p>Need help? <a href="mailto:support@tbbbout.com">support@tbbbout.com</a>.</p>
+                    <p>&copy; 2019 <a href="https://www.tbbbout.com/" target="_blank">tbbbout.com</a>.</p>
+                    <p>
+                        View our <a href="https://www.tbbbout.com/terms-of-use" target="_blank">Terms of Use</a> and
+                        <a href="https://www.tbbbout.com/privacy" target="_blank">Privacy Policy</a>.
+                    </p>
+                </div>
+            </footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</main>

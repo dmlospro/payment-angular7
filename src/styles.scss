@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body, input, textarea, select, .musubu-app .mat-table{
+	font-family: 'Open Sans',Helvetica,Arial,Lucida,sans-serif;
+}
+body {
+	margin: 0;
+	line-height: 1.5em;
+	font-size: 18px;
+	font-weight: 400;
+	color: #6d6d6d;
+	background-color: #fafafa;
+}
+.mat-drawer-content {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 10px 20px;
+	text-align: center;
+}
+.content-container.mat-drawer-container,
+.mat-drawer-content{
+	background-color: transparent;
+}
+
+/* TYPOGRAPHY */  
+p {
+	margin-top: 0;
+}
+ol,
+ul,
+p{
+	color: #6d6d6d;
+}
+a,
+a:link,
+a:visited{
+	color: #0e8c44;
+	text-decoration: none;
+}
+a:hover{
+	color: #0e8c44;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+/* BUTTONS */
+.tbbbout .mat-flat-button,
+.tbbbout .mat-raised-button,
+.tbbbout .mat-fab,
+.tbbbout .mat-mini-fab{
+	letter-spacing: 1px;
+}
+.tbbbout .mat-flat-button.mat-primary,
+.tbbbout .mat-raised-button.mat-primary,
+.tbbbout .mat-fab.mat-primary,
+.tbbbout .mat-mini-fab.mat-primary{
+	background-color: #0e8c44;
+	color: #fff;
+}
+
+
+/* FORM FIELDS */
+.mat-form-field-flex .mat-form-field-infix{
+	width: 230px;
+}
+/* checkbox */
+.tbbbout .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element,
+.tbbbout .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.tbbbout .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+	background-color: #0e8c44;
+}
+
+
+/* FOOTER */
+footer{
+	padding: 30px 0 0;
+	text-align: center;
+	font-size: 14px;
+}
+
+
+/* PAGES */
+.page-icon {
+    width: 200px;
+    padding: 20px 0;
+}
+
+
+/* LOGIN */
+#hiw-login-container .auth0-lock.auth0-lock .auth0-lock-header{
+	height: 55px;
+}
+#hiw-login-container .auth0-lock.auth0-lock .auth0-lock-header-logo{
+	display: none;
+}

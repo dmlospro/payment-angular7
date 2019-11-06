@@ -1,0 +1,20 @@
+<section>
+    <h2>Bank Info</h2>
+    <p>Enter your banking info:</p>
+    <mat-form-field>
+      <input matInput [formControl]="accountName" placeholder="Name on Account" required>
+      <mat-error *ngIf="accountName.invalid">{{getErrorMessage('accountName')}}</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput [formControl]="accountNumber" placeholder="Account Number" required>
+      <mat-error *ngIf="accountNumber.invalid">{{getErrorMessage('accountNumber')}}</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput [formControl]="routingNumber" placeholder="Routing Number" required>
+      <mat-error *ngIf="routingNumber.invalid">{{getErrorMessage('routingNumber')}}</mat-error>
+    </mat-form-field>
+    <br><br>
+    <button mat-raised-button color="primary" (click)="confirmClick()">Confirm</button>
+</section>

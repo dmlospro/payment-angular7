@@ -1,0 +1,100 @@
+/* HEADER */
+.mat-toolbar{
+  padding: 10px 0;
+  background: #fff;
+  box-shadow: 0 0 7px rgba(0,0,0,.1);
+}
+.mat-toolbar .mat-toolbar-row{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+.logo{
+  padding-left: 10px;
+}
+.logo a{
+  display: flex;
+  align-items: center;
+}
+.logo .mobile,
+.mobile-nav{
+  display: none;
+}
+.mat-toolbar .mat-toolbar-row.desktop-nav{
+  height: 40px;
+  width: auto;
+}
+.desktop-nav .nav-item{
+  float: left;
+  margin-right: 20px;
+}
+.desktop-nav .nav-item:last-child{
+  margin-right: 0;
+}
+
+
+/* PAGE HEADER */
+.title{
+  padding-left: 20px;
+  white-space: normal;
+}
+.title-padding {
+    padding: 0px 5px 0px 5px;
+}
+
+.button-spacer {
+    flex: 1 1 auto;
+}
+
+
+/* BUTTONS */
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+.mat-drawer button{
+  display: block;
+  margin-left: 10px;
+}
+
+
+/* LOGIN */
+#hiw-login-container .auth0-lock.auth0-lock .auth0-lock-header{
+  height: 30px;
+}
+#hiw-login-container .auth0-lock.auth0-lock .auth0-lock-header-logo{
+  display: none;
+}
+
+
+@media screen and (max-width: 1200px){
+  .mat-toolbar{
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 915px){
+  .title{
+    display: none;
+  }
+}
+@media screen and (max-width: 580px){
+  .logo .desktop,
+  .desktop-nav,
+  .header-buy-buttons{
+    display: none;
+  }
+  .logo .mobile,
+  .mobile-nav{
+    display: block;
+  }
+  .header .mat-flat-button{
+    font-size: 18px;
+  }
+}
+
+.loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

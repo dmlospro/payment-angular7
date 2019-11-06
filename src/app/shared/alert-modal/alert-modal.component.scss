@@ -1,0 +1,15 @@
+.mat-dialog-title,
+.mat-dialog-content {
+    text-align: center;
+}
+
+img {
+    width: 150px;
+}
+
+.mat-dialog-actions {
+    justify-content: center;
+    button + button {
+        margin-left: 20px;
+    }
+}

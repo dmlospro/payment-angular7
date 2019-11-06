@@ -1,0 +1,10 @@
+<section>
+    <h2>Confirm Phone</h2>
+    <p>Enter your SMS code here:</p>
+    <mat-form-field>
+        <input type="tel" maxlength="4" minlength="4" matInput [formControl]="smsInput" (keydown)="submitForm($event)" placeholder="SMS code">
+        <mat-error *ngIf="smsInput.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <br/>
+    <button mat-raised-button color="primary" (click)="confirmClick()">Confirm</button>
+</section>
