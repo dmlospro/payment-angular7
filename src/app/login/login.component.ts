@@ -76,11 +76,11 @@ export class LoginComponent implements OnInit {
         languageDictionary: {
           title: 'Log In'
         },
-        // allowShowPassword: true,
-        // allowForgotPassword: true,
-        // allowSignUp: false,
-        // allowLogin: false,
-        // closable: true,
+        allowShowPassword: true,
+        allowForgotPassword: true,
+        allowSignUp: false,
+        allowLogin: false,
+        closable: true,
       }
     );
     lock.on('authenticated', (authResult) => {
